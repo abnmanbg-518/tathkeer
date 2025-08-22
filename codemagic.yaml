@@ -6,6 +6,6 @@ workflows:
     scripts:
       - flutter --version
       - flutter pub get
-      - flutter build apk --release
+      - flutter build apk
     artifacts:
       - build/app/outputs/flutter-apk/*.apk
