@@ -6,8 +6,6 @@ workflows:
       flutter: stable
       xcode: latest
       cocoapods: default
-      vars:
-        APP_ENV: debug
     scripts:
       - name: Install dependencies
         script: |
