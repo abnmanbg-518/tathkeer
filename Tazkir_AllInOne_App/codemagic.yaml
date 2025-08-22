@@ -1,11 +1,22 @@
 workflows:
-  default-workflow:
-    name: Build Flutter APK
+  debug-workflow:
+    name: Debug Workflow
+    max_build_duration: 60
     environment:
       flutter: stable
+      xcode: latest
+      cocoapods: default
+      vars:
+        APP_ENV: debug
     scripts:
-      - flutter --version
-      - flutter pub get
-      - flutter build apk --release
+      - name: Install dependencies
+        script: |
+          flutter pub get
+      - name: Build APK (Debug)
+        script: |
+          flutter build apk --debug
     artifacts:
-      - build/app/outputs/flutter-apk/*.apk
+      - build/app/outputs/flutter-apk/app-debug.apk
+    cache:
+      paths:
+        - ~/.pub-cache
